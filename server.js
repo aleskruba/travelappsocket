@@ -8,6 +8,12 @@ app.use(cors());
 
 const server = http.createServer(app);
 
+
+app.get('/health', (req, res) => {
+    res.json({ status: 'success', message: 'Socket server is running' });
+});
+
+
 const io = new Server(server, {
     cors: {
         origin:[ "http://localhost:3000","https://travelapp-itpa.onrender.com"],
